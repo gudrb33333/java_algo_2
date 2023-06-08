@@ -1,20 +1,16 @@
 class Solution {
     public String solution(String s) {
-        String[] strList = s.split(" ");
-        int[] intList = new int[strList.length];
+        int min = Integer.MAX_VALUE;
+        int max = -Integer.MAX_VALUE;
         
-        for(int i=0; i<strList.length; i++) {
-            intList[i] = Integer.parseInt(strList[i]);
-        }
-      
-        int maxResult = -10000000;
-        int minResult = 10000000;
-            
-        for(int item : intList) {
-            maxResult = Math.max(item, maxResult);
-            minResult = Math.min(item, minResult);
+        String[] strArr = s.split(" ");
+        
+        for ( String item : strArr ) {
+            int intItem = Integer.valueOf(item);
+            min = Math.min(intItem, min);
+            max = Math.max(intItem, max);
         }
         
-        return String.valueOf(minResult) + " " + String.valueOf(maxResult);
+        return String.valueOf(min) + " " + String.valueOf(max);
     }
 }
